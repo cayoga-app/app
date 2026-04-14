@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>CaYoga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./apple-touch-icon.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CaYoga">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="CaYoga">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Accesso rapido ai contenuti CaYoga.">
+
+  <style>
+    :root {
+      --brand: #a85a1a;
+      --brand-hover: #8f4c15;
+      --text: #1f1f1f;
+      --muted: #666666;
+      --bg: #f7f4f1;
+      --card: #ffffff;
+      --border: #eadfd4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #ffffff 0%, var(--bg) 55%, #efe7df 100%);
+      color: var(--text);
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 24px;
+      display: block;
+      margin: 0 auto 20px;
+      background: #ffffff;
+      box-shadow: 0 6px 20px rgba(168, 90, 26, 0.12);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--brand);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+      box-shadow: 0 10px 24px rgba(168, 90, 26, 0.22);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(168, 90, 26, 0.28);
+      outline: none;
+    }
+
+    .button.secondary {
+      background: #ffffff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: #fbf7f3;
+      color: var(--brand-hover);
+      border-color: var(--brand-hover);
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 0.9rem;
+      color: #7a7a7a;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img
+      class="logo"
+      src="./apple-touch-icon.png"
+      alt="Logo CaYoga"
+      width="96"
+      height="96"
+    >
+
+    <h1>CaYoga</h1>
+    <p>Accedi rapidamente ai tuoi contenuti con un tocco.</p>
+
+    <div class="buttons">
+      <a class="button" href="https://cayoga.it/corsi">
+        VAI AI CORSI
+      </a>
+
+      <a class="button secondary" href="https://cayoga.it/preferite">
+        LE TUE LEZIONI PREFERITE
+      </a>
+    </div>
+
+    <div class="footer">
+      Benvenuta nel tuo spazio CaYoga
+    </div>
+  </main>
+</body>
+</html>
