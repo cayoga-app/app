@@ -72,13 +72,6 @@
       box-shadow: 0 6px 20px rgba(168, 90, 26, 0.12);
     }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
     p {
       margin: 0 0 28px;
       color: var(--muted);
@@ -133,24 +126,26 @@
       border-color: var(--brand-hover);
     }
 
-    .footer {
-      margin-top: 22px;
-      font-size: 0.9rem;
-      color: #7a7a7a;
-    }
-
     @media (max-width: 480px) {
       .card {
         padding: 28px 20px;
         border-radius: 24px;
       }
-
-      h1 {
-        font-size: 1.75rem;
-      }
     }
   </style>
+
+  <script>
+    (function () {
+      var isStandalone = window.navigator.standalone === true ||
+        window.matchMedia('(display-mode: standalone)').matches;
+
+      if (isStandalone) {
+        window.location.replace('https://cayoga.it/corsi');
+      }
+    })();
+  </script>
 </head>
+
 <body>
   <main class="card">
     <img
@@ -161,7 +156,6 @@
       height="96"
     >
 
-    <h1>CaYoga</h1>
     <p>Accedi rapidamente ai tuoi contenuti con un tocco.</p>
 
     <div class="buttons">
@@ -172,10 +166,6 @@
       <a class="button secondary" href="https://cayoga.it/preferite">
         LE TUE LEZIONI PREFERITE
       </a>
-    </div>
-
-    <div class="footer">
-      Benvenuta nel tuo spazio CaYoga
     </div>
   </main>
 </body>
