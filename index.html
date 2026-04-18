@@ -13,7 +13,6 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="CaYoga">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Accesso rapido ai contenuti CaYoga.">
 
   <style>
     :root {
@@ -24,10 +23,6 @@
       --bg: #f7f4f1;
       --card: #ffffff;
       --border: #eadfd4;
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     html, body {
@@ -49,94 +44,58 @@
 
     .card {
       width: 100%;
-      max-width: 460px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 28px;
       padding: 32px 24px;
-      box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 0, 0, 0.04);
       text-align: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
 
     .logo {
-      width: 96px;
-      height: 96px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
-      border-radius: 24px;
-      display: block;
       margin: 0 auto 20px;
-      background: #ffffff;
-      box-shadow: 0 6px 20px rgba(168, 90, 26, 0.12);
+      display: block;
     }
 
     p {
-      margin: 0 0 28px;
+      margin-bottom: 24px;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .buttons {
-      display: grid;
-      gap: 14px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
-      padding: 16px 20px;
+      height: 56px;
+      padding: 0 24px;
       border-radius: 16px;
       background: var(--brand);
-      color: #ffffff;
+      color: #fff;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.01em;
-      transition:
-        transform 0.15s ease,
-        background-color 0.15s ease,
-        box-shadow 0.15s ease;
-      box-shadow: 0 10px 24px rgba(168, 90, 26, 0.22);
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(168, 90, 26, 0.25);
+      transition: 0.2s;
     }
 
-    .button:hover,
-    .button:focus-visible {
+    .button:hover {
       background: var(--brand-hover);
       transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(168, 90, 26, 0.28);
-      outline: none;
     }
 
-    .button.secondary {
-      background: #ffffff;
-      color: var(--brand);
-      border: 1.5px solid var(--brand);
-      box-shadow: none;
-    }
-
-    .button.secondary:hover,
-    .button.secondary:focus-visible {
-      background: #fbf7f3;
-      color: var(--brand-hover);
-      border-color: var(--brand-hover);
-    }
-
+    /* SPLASH */
     .splash {
       position: fixed;
       inset: 0;
       display: none;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      background: linear-gradient(180deg, #ffffff 0%, #f7f4f1 100%);
+      background: #ffffff;
       z-index: 9999;
       opacity: 0;
-      transition: opacity 0.45s ease;
+      transition: opacity 0.4s ease;
     }
 
     .splash.show {
@@ -144,66 +103,15 @@
       opacity: 1;
     }
 
-    .splash-logo {
+    .splash img {
       width: 120px;
       height: 120px;
-      object-fit: contain;
-      border-radius: 28px;
-      background: #ffffff;
-      box-shadow: 0 10px 30px rgba(168, 90, 26, 0.14);
-      animation: floatIn 0.7s ease forwards;
-    }
-
-    .splash-text {
-      margin-top: 18px;
-      color: var(--brand);
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 0.7s ease 0.2s forwards;
-    }
-
-    .loader {
-      width: 42px;
-      height: 42px;
-      margin-top: 18px;
-      border-radius: 50%;
-      border: 3px solid rgba(168, 90, 26, 0.16);
-      border-top-color: var(--brand);
-      animation: spin 0.9s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes floatIn {
-      0% {
-        opacity: 0;
-        transform: translateY(12px) scale(0.96);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      animation: fadeIn 0.6s ease forwards;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 28px 20px;
-        border-radius: 24px;
-      }
-
-      .splash-logo {
-        width: 110px;
-        height: 110px;
-      }
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 
@@ -216,13 +124,11 @@
       if (isStandalone) {
         window.addEventListener('DOMContentLoaded', function () {
           var splash = document.getElementById('splash');
-          if (splash) {
-            splash.classList.add('show');
-          }
+          splash.classList.add('show');
 
           setTimeout(function () {
             window.location.replace('https://cayoga.it/corsi');
-          }, 1000);
+          }, 900);
         });
       }
     })();
@@ -230,38 +136,20 @@
 </head>
 
 <body>
+
   <div id="splash" class="splash">
-    <img
-      class="splash-logo"
-      src="./apple-touch-icon.png"
-      alt="Logo CaYoga"
-      width="120"
-      height="120"
-    >
-    <div class="splash-text">CaYoga</div>
-    <div class="loader" aria-hidden="true"></div>
+    <img src="./apple-touch-icon.png" alt="CaYoga">
   </div>
 
   <main class="card">
-    <img
-      class="logo"
-      src="./apple-touch-icon.png"
-      alt="Logo CaYoga"
-      width="96"
-      height="96"
-    >
+    <img class="logo" src="./apple-touch-icon.png" alt="CaYoga">
 
-    <p>Accedi rapidamente ai tuoi contenuti con un tocco.</p>
+    <p>Accedi rapidamente ai tuoi corsi</p>
 
-    <div class="buttons">
-      <a class="button" href="https://cayoga.it/corsi">
-        VAI AI CORSI
-      </a>
-
-      <a class="button secondary" href="https://cayoga.it/preferite">
-        LE TUE LEZIONI PREFERITE
-      </a>
-    </div>
+    <a class="button" href="https://cayoga.it/corsi">
+      VAI AI CORSI
+    </a>
   </main>
+
 </body>
 </html>
