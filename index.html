@@ -5,8 +5,8 @@
   <title>CaYoga</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="./apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" href="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="CaYoga">
@@ -85,7 +85,6 @@
       transform: translateY(-1px);
     }
 
-    /* SPLASH */
     .splash {
       position: fixed;
       inset: 0;
@@ -124,7 +123,7 @@
       if (isStandalone) {
         window.addEventListener('DOMContentLoaded', function () {
           var splash = document.getElementById('splash');
-          splash.classList.add('show');
+          if (splash) splash.classList.add('show');
 
           setTimeout(function () {
             window.location.replace('https://cayoga.it/corsi');
@@ -136,20 +135,16 @@
 </head>
 
 <body>
-
   <div id="splash" class="splash">
-    <img src="./apple-touch-icon.png" alt="CaYoga">
+    <img src="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2" alt="CaYoga">
   </div>
 
   <main class="card">
-    <img class="logo" src="./apple-touch-icon.png" alt="CaYoga">
-
+    <img class="logo" src="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2" alt="CaYoga">
     <p>Accedi rapidamente ai tuoi corsi</p>
-
     <a class="button" href="https://cayoga.it/corsi">
       VAI AI CORSI
     </a>
   </main>
-
 </body>
 </html>
