@@ -5,14 +5,15 @@
   <title>CaYoga</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="apple-touch-icon" href="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" href="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./apple-touch-icon.png">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="CaYoga">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="CaYoga">
   <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Accesso rapido ai contenuti CaYoga.">
 
   <style>
     :root {
@@ -23,6 +24,10 @@
       --bg: #f7f4f1;
       --card: #ffffff;
       --border: #eadfd4;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     html, body {
@@ -44,107 +49,124 @@
 
     .card {
       width: 100%;
-      max-width: 420px;
-      background: rgba(255, 255, 255, 0.95);
+      max-width: 460px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
       border-radius: 28px;
       padding: 32px 24px;
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
       text-align: center;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
 
     .logo {
-      width: 100px;
-      height: 100px;
+      width: 96px;
+      height: 96px;
       object-fit: contain;
-      margin: 0 auto 20px;
+      border-radius: 24px;
       display: block;
+      margin: 0 auto 20px;
+      background: #ffffff;
+      box-shadow: 0 6px 20px rgba(168, 90, 26, 0.12);
     }
 
     p {
-      margin-bottom: 24px;
+      margin: 0 0 28px;
       color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 14px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 56px;
-      padding: 0 24px;
+      min-height: 56px;
+      padding: 16px 20px;
       border-radius: 16px;
       background: var(--brand);
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 10px 24px rgba(168, 90, 26, 0.25);
-      transition: 0.2s;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+      box-shadow: 0 10px 24px rgba(168, 90, 26, 0.22);
     }
 
-    .button:hover {
+    .button:hover,
+    .button:focus-visible {
       background: var(--brand-hover);
       transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(168, 90, 26, 0.28);
+      outline: none;
     }
 
-    .splash {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
+    .button.secondary {
       background: #ffffff;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      box-shadow: none;
     }
 
-    .splash.show {
-      display: flex;
-      opacity: 1;
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: #fbf7f3;
+      color: var(--brand-hover);
+      border-color: var(--brand-hover);
     }
 
-    .splash img {
-      width: 120px;
-      height: 120px;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    @media (max-width: 480px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
     }
   </style>
 
   <script>
     (function () {
-      var isStandalone =
-        window.navigator.standalone === true ||
+      var isStandalone = window.navigator.standalone === true ||
         window.matchMedia('(display-mode: standalone)').matches;
 
       if (isStandalone) {
-        window.addEventListener('DOMContentLoaded', function () {
-          var splash = document.getElementById('splash');
-          if (splash) splash.classList.add('show');
-
-          setTimeout(function () {
-            window.location.replace('https://cayoga.it/corsi');
-          }, 900);
-        });
+        window.location.replace('https://cayoga.it/corsi');
       }
     })();
   </script>
 </head>
 
 <body>
-  <div id="splash" class="splash">
-    <img src="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2" alt="CaYoga">
-  </div>
-
   <main class="card">
-    <img class="logo" src="https://cayoga-app.github.io/app/apple-touch-icon.png?v=2" alt="CaYoga">
-    <p>Accedi rapidamente ai tuoi corsi</p>
-    <a class="button" href="https://cayoga.it/corsi">
-      VAI AI CORSI
-    </a>
+    <img
+      class="logo"
+      src="./apple-touch-icon.png"
+      alt="Logo CaYoga"
+      width="96"
+      height="96"
+    >
+
+    <p>Accedi rapidamente ai tuoi contenuti con un tocco.</p>
+
+    <div class="buttons">
+      <a class="button" href="https://cayoga.it/corsi">
+        VAI AI CORSI
+      </a>
+
+      <a class="button secondary" href="https://cayoga.it/preferite">
+        LE TUE LEZIONI PREFERITE
+      </a>
+    </div>
   </main>
 </body>
 </html>
